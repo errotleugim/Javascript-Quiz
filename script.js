@@ -3,13 +3,19 @@ const scoreboard = document.getElementById('scoreboard');
 var startquiz = document.getElementById('startquiz');
 
 //Function to show high scores. Can't seem to make it hide them back.
-scores.addEventListener("click", function() {
-  if (scoreboard.style.display = "none") {
-    scoreboard.style.display = "block";
-  } else if (scoreboard.style.display = "block") {
-    scoreboard.style.display= "none";
-  }
-});
+// scores.addEventListener("click", function() {
+//   if ((scoreboard.style.display) = "none") {
+//     scoreboard.style.display = "block";
+//   } else if (scoreboard.style.display = "block") {
+//     scoreboard.style.display= "none";
+//   }
+// });
+$(document).ready(function(){
+    $('#highscores').click(function(){
+        $('#scoreboard').toggle();
+    });
+    });
+
 //This makes the main quiz div visible.
 startquiz.addEventListener("click", function() {
   if (container.style.display = "none") {
@@ -21,39 +27,39 @@ startquiz.addEventListener("click", function() {
 (function() {
   var questions = [{
     question: "Commonly used data types do NOT include:",
-    choices: ["Fonts", "Boolean","integer" , "float", "string"],
+    choices: ["Fonts", "Boolean","integer" , "float",],
     correctAnswer: 0
    }, 
-   //{
-  //   question: "The condition of an if/else statement is enclosed within:",
-  //   choices: ["Curly Brackets {}", "Square brackets []", "Parenthesis ()", 'Single Quotes', "Double Quotes"],
-  //   correctAnswer: 0
-  // }, {
-  //   question: "Arrays in JavaScript can be used to store:",
-  //   choices: [72, 99, 108, 134, 156],
-  //   correctAnswer: 0
-  // }, {
-  //   question: "Strings must be enclosed within what?",
-  //   choices: [4, 5, 6, 7, 8],
-  //   correctAnswer: 3
-  // }, {
-  //   question: "What is 8*8?",
-  //   choices: [20, 30, 40, 50, 64],
-  //   correctAnswer: 4
-  // },{
-  //   question: "Coding is hard?",
-  //   choices: [2, 5, 10, 15, 20],
-  //   correctAnswer: 2
-  //  },
-  // {
-  //   question: "Coding is hard?",
-  //   choices: [2, 5, 10, 15, 20],
-  //   correctAnswer: 2
-  // },{
-  //   question: "Coding is hard?",
-  //   choices: [2, 5, 10, 15, 20],
-  //   correctAnswer: 2
-  // }
+   {
+    question: "The condition of an if/else statement is enclosed within:",
+    choices: ["Curly Brackets {}", "Square brackets []", "Parenthesis ()", 'Single Quotes'],
+    correctAnswer: 0
+  }, {
+    question: "Arrays in JavaScript can be used to store:",
+    choices: ["Numbers and strings","Other arrays", "booleans", "all of the above"],
+    correctAnswer: 0
+  }, {
+    question: "Strings must be enclosed within what?",
+    choices: ["Quotes or double quotes", "brackets", "parentheses", "pound signs"],
+    correctAnswer: 0
+  }, {
+    question: "Which of these is not a Javascript library",
+    choices: ["MySQL", "JQuery","React","AngularJS" ],
+    correctAnswer: 0
+  },{
+    question: "Coding is hard?",
+    choices: ["Yes", "No", "no", "maybe"],
+    correctAnswer: 0
+   },
+  {
+    question: "Coding is hard?",
+    choices: ["Yes", "No", "no", "maybe"],
+    correctAnswer: 0
+  },{
+    question: "Coding is hard?",
+    choices: ["Yes", "No", "no", "maybe"],
+    correctAnswer: 0
+  }
 ];
   
   var questionCounter = 0; //Tracks question number
@@ -94,19 +100,7 @@ startquiz.addEventListener("click", function() {
     displayNext();
   });
   
-  // Click handler for the 'Start Over' button
-  $('#start').on('click', function (e) {
-    e.preventDefault();
-    
-    if(quiz.is(':animated')) {
-      return false;
-    }
-    questionCounter = 0;
-    selections = [];
-    displayNext();
-    $('#start').hide();
-  });
-  
+
  
   
   // Creates and returns the div that contains the questions and 
@@ -188,7 +182,7 @@ startquiz.addEventListener("click", function() {
         numCorrect++;
       }
     }
-    var name = prompt("who dis")
+    var name = prompt("Type your initials")
     score.append(name + ' got ' + numCorrect + '/' +
                  questions.length );
     return score;

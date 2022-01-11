@@ -1,4 +1,4 @@
-var start = document.getElementById('startq');
+var start = document.getElementById('startquiz');
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -22,3 +22,7 @@ function startTimer(duration, display) {
         display = document.querySelector('#time');
     startTimer(oneMinute, display);
   });
+  
+  function timeranout() {
+      
+  }
