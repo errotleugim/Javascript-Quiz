@@ -61,14 +61,14 @@ $(document).ready(function(){
   // Display initial question
   displayNext();
   
-  // Click handler for the 'next' button
+  // Button for next question
   $('#next').on('click', function (e) {
     e.preventDefault();
     
  
     choose();
     
-    // If no user selection, progress is stopped
+    // Next button
     if (isNaN(selections[questionCounter])) {
       alert('Please make a selection!');
     } else {
@@ -77,7 +77,7 @@ $(document).ready(function(){
     }
   });
   
-  // Click handler for the 'prev' button
+  // 'previous button
   $('#prev').on('click', function (e) {
     e.preventDefault();
     
@@ -109,7 +109,7 @@ $(document).ready(function(){
     return qElement;
   }
   
-  // Creates a list of the answer choices as radio inputs
+  // Creates a list of the answer choices
   function createRadios(index) {
     var radioList = $('<ul>');
     var item;
@@ -124,7 +124,7 @@ $(document).ready(function(){
     return radioList;
   }
   
-  // Reads the user selection and pushes the value to an array
+  // Makes an array from user selections
   function choose() {
     selections[questionCounter] = +$('input[name="answer"]:checked').val();
   }
@@ -163,7 +163,7 @@ $(document).ready(function(){
   //List still broken
   function displayScore() {
     var score = document.getElementById('scoreboard');
-    
+    var x = $('<li>');
     var numCorrect = 0;
     for (var i = 0; i < selections.length; i++) {
       if (selections[i] === questions[i].correctAnswer) {
@@ -171,9 +171,8 @@ $(document).ready(function(){
       }
     }
     var name = prompt("Type your initials")
-    score.append('<li>', name + ' got ' + numCorrect + '/' +
-                 questions.length , '</li>');
+    score.append(name + ' got ' + numCorrect + '/' +
+                 questions.length);
     return score;
   }
 })();
-

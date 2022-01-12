@@ -11,6 +11,7 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
         }
+        
     }, 1000);
   }
   
@@ -20,3 +21,12 @@ function startTimer(duration, display) {
     startTimer(oneMinute, display);
   });
   
+//End game function. Also broken.
+// function gameover () {
+//     var timer = document.querySelector('#time');
+//     if (timer.textContent = 0) {
+//         alert("You lost");
+//     }
+// }
+
+// gameover();
